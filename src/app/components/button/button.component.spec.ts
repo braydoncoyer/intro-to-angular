@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { ButtonComponent } from './button.component';
 
@@ -22,4 +23,20 @@ describe('ButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set button text correctly if provided', () => {
+    component.buttonText = 'Testing';
+    expect(component.buttonText).toBe('Testing');
+    fixture.detectChanges();
+
+    const buttonEl = fixture.debugElement.queryAll(By.css('.button__container'))[0].nativeElement;
+    expect(buttonEl.innerHTML).toContain('Testing');
+  });
+
+  it('should emit event when button is clicked', () => {
+    const spy = spyOn(component.buttonClickEvent, 'emit');
+    component.onButtonClick();
+    expect(spy).toHaveBeenCalled();
+
+  })
 });

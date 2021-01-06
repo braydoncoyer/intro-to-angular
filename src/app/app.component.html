@@ -2,8 +2,8 @@
 <div class="container">
     <div class="container__elements">
         <h1>Office Quote Generator</h1>
-        <app-button [buttonText]="'Click Me!'" (buttonClickEvent)="getQuote()"></app-button>
-        <app-quote *ngIf="quote" [quote]="quote"></app-quote>
+        <app-button class="container__elements-button" [buttonText]="'Click Me!'" (buttonClickEvent)="getQuote()"></app-button>
+        <app-quote class="container__elements-quote" *ngIf="quote" [quote]="quote"></app-quote>
     </div>
 </div>
 

@@ -14,7 +14,7 @@ export class QuoteService {
   constructor(private http: HttpClient) { }
 
 
-  getOfficeQuote(): Observable<Quote> {
+  getOfficeQuote(): Observable<any> {
     return this.http.get<Quote>(`${this.endpoint}`)
   }
   

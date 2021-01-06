@@ -1,4 +1,4 @@
-<div class="quote__container">
-    <p class="quote__container-text">{{quote.content}}</p>
+<div class="quote__container" *ngIf="quote">
+    <p  class="quote__container-text">{{quote.content}}</p>
     <p class="quote__container-person">- {{quote.character.firstname}} {{quote.character.lastname}}</p>
 </div>
