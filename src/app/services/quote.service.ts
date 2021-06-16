@@ -5,17 +5,14 @@ import { Quote } from '../models/quote.model';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class QuoteService {
-
   endpoint: string = 'https://www.officeapi.dev/api/quotes/random';
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {}
 
   getOfficeQuote(): Observable<Quote> {
-    return this.http.get<Quote>(`${this.endpoint}`)
+    return this.http.get<any>(`${this.endpoint}`).pipe(map((res) => res.data));
   }
-  
 }
